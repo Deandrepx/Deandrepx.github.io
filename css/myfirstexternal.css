@@ -1,0 +1,22 @@
+h1 {
+  color: red;
+}
+p {
+  color: blue;
+}
+#p1 {
+  font style: italic;
+}
+.boldText {
+  font-weight: bold;
+}
+
+.card {
+  background-color: lightgrey;
+  border: 5px solid grey;
+  border-radius: 10px;
+  /* offset-x, offset-y, blur-radius, spread-radius, color */
+  box-shadow: 10px 10px 12px 4px rgba(0, 0, 0.5);
+  margin: 24px;
+  padding: 48px;
+}
