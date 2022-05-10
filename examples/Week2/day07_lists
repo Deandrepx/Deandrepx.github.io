@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>List Examples</title>
+    <style>
+    #fruitBasket{
+      list-style-type: square;
+      color: green;
+    }
+    #fruitBasket li span{
+      color: red;
+    }
+    </style>
+  </head>
+  <body>
+    <ol>
+     <li>Mercury</li>
+     <li>Earth</li>
+     <li>Mars</li>
+     <li>Venus</li>
+    </ol>
+
+
+    <ul id="fruitBasket">
+      Tomato
+     <li><span>strawberries</span></li>
+     <li>banana</li>
+     <li>pineapples</li>
+     <li>apples</li>
+    </ul>
+  </body>
+</html>
