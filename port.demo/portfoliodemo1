@@ -2,8 +2,32 @@
 <html lang="en-US">
   <head>
     <title>Portfolio Demo 1</title>
+    <style>
+     body{
+       color: yellow;
+       background: black;
+     }
+     #links li {
+      background-color: gold;
+      display: inline-block;
+      list-style-type: none;
+      text-align: center;
+      padding: 10px;
+      margin: 6px 24px;
+      display: inline-block;
+     }
+     #links{
+
+     }
+    </style>
   </head>
   <body>
-    <h1>I'm <span class=""Deandre, a Visual designer</h1>
+    <img scr="images/light_yagami 002.jpeg">
+    <h1>I'm Deandre, a Visual designer</h1>
+     <ul id="links">
+      <li><a href="portfolio.html">PORTFOLIO</a></li>
+      <li><a href="about_me.html">ABOUT ME</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+   </ul>
   </body>
 </html>
