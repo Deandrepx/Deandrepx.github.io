@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Tables Example</title>
+    <style>
+      /* Ugly table CSS */
+
+      #uglyTable,
+      #uglyTable caption,
+      #uglyTable th,
+      #uglyTable td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 12px;
+      }
+      #tableHead{
+        margin-bottom: 48px;
+      }
+      #uglyTableRow{
+        background-color: pink;
+      }
+      #column {
+        background-color: gray;
+      }
+      #uglyColSpan{
+        background-color: grey;
+      }
+      #uglytableCell{
+        background-color: skyblue;
+      }
+    /* Pretty table CSS */
+    #prettyTable {
+      border-collapse: collapse;
+    }
+    #prettyTable th {
+      padding-bottom: 12px;
+      padding-right: 24px;
+    }
+    #prettyTableCell td {
+      paddiing: 4px 0px;
+    }
+    #prettyTable tr:nth-child(even) {
+      background-color: #F0F0F0;
+    }
+    #prettyTable tr:hover {
+      background-color: E0FFE0;
+    }
+
+    </style>
+  </head>
+  <body>
+    <table id="uglyTable">
+      <caption>I am an ugly table</caption>
+      <colgroup>
+       <col id="uglyColspan" span="2">
+       <col>
+       <col>
+       <col>
+      </colgroup>
+     <thead>
+      <tr id="uglyTableRow">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Least Favorite Food</th>
+        <th>Favorite Animal</th>
+      </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td id="uglytableCell"=>Jane</td>
+         <td>Doe</td>
+         <td>Panther</td>
+         <td>Snake</td>
+       </tr>
+       <tr>
+         <td>Victor</td>
+         <td>Van dort</td>
+         <td>Butterfly</td>
+         <td>Fish</td>
+       </tr>
+       <tr>
+         <td>Victoria</td>
+         <td>Everglot</td>
+         <td>Otter</td>
+         <td>Soup</td>
+       </tr>
+       <tr>
+         <td>John</td>
+         <td>Smith</td>
+         <td>Dog</td>
+         <td>Fetticcine</td>
+       </tr>
+     </table>
+     <table id="prettyTable">
+       <caption>I am an pretty table</caption>
+       <colgroup>
+        <col id="uglyColspan" span="2">
+        <col>
+        <col>
+        <col>
+       </colgroup>
+      <thead>
+       <tr id="prettyTableRow">
+         <th id=prettyTable>First Name</th>
+         <th>Last Name</th>
+         <th>Least Favorite Food</th>
+         <th>Favorite Animal</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="prettyTableCell"=>Jane</td>
+          <td>Doe</td>
+          <td>Panther</td>
+          <td>Snake</td>
+        </tr>
+        <tr>
+          <td>Victor</td>
+          <td>Van dort</td>
+          <td>Butterfly</td>
+          <td>Fish</td>
+        </tr>
+        <tr>
+          <td>Victoria</td>
+          <td>Everglot</td>
+          <td>Otter</td>
+          <td>Soup</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Smith</td>
+          <td>Dog</td>
+          <td>Fetticcine</td>
+        </tr>
+  </body>
+</html>
