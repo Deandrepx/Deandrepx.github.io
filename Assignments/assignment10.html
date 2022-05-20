@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Monthly bills</title>
+    <style>
+    /* Bill Budget CSS */
+
+    #billTable,
+    #billTable td,
+    #billTable th {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 20px;
+    }
+    #colBill
+    {
+    background-color: lightblue;
+  }
+
+    </style>
+  </head>
+  <body>
+    <table id="billTable">
+      <colgroup>
+        <col id="colBill" span="1">
+        <col>
+        <col>
+        <col>
+      </colgroup>
+    <thead>
+     <tr id="billRow">
+      <th>Bills</th>
+      <th>June</th>
+      <th>July</th>
+      <th>August</th>
+     </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="billCell">Lawn Care</td>
+        <td>$60</td>
+        <td>$60</td>
+        <td>$40</td>
+      </tr>
+      <tr>
+        <td id="billCell">Electric Bill</td>
+        <td>$120</td>
+        <td>$140</td>
+        <td>$90</td>
+      </tr>
+      <tr>
+        <td id="billCell">Water Bill</td>
+        <td>$80</td>
+        <td>$60</td>
+        <td>$75</td>
+      </tr>
+     </tbody>
+    </table>
+  </body>
+</html>
