@@ -16,12 +16,12 @@
     }
     .normalLink,
     .importantLink {
-      padding: 12px 24;
+      padding: 12px 24px;
     }
     .normalLink:hover,
     .importantLink:hover {
       cursor: pointer;
-      opacity: %60
+      opacity: 60%;
     }
     .normalLink {
       background-color: coral;
@@ -33,7 +33,7 @@
       display: flex;
     }
     nav .importantLink,
-    nav .importantLink {
+    nav .normalLink {
       flex-grow: 1;
       text-align: center;
     }
@@ -53,7 +53,7 @@
       flex-grow: 2;
       text-align: center;
     }
-    @media screen and (min-width 480px) and (min-width 480px) {
+    @media screen and (min-width 480px) and (max-width 479px) {
       header {
         font-size 18px;
       }
@@ -64,11 +64,13 @@
       nav {
         flex-wrap: wrap;
       }
-      nav .importantLink{
+      nav,
+       .importantLink{
         flex-basis: 100%;
         padding: 16;
       }
-      nav .normalLink {
+      nav,
+       .normalLink {
         flex-basis: 33.33%;
         padding: 20px;
       }
@@ -80,7 +82,7 @@
         padding: 36px
       }
     }
-    @media screen and (max-width: 479px) {
+    @media screen and (max-width: 480px) {
       header {
         font-size: 14px;
       }
@@ -128,6 +130,5 @@
     <div class="importantLink">other impporatnt link</div>
     <div class="importantLink">other important link</div>
   </footer>
-   </header>
   </body>
 </html>
