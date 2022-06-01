@@ -8,18 +8,20 @@
     #billTable,
     #billTable td,
     #billTable th {
-      border: 1px solid black;
+      border: solid 2px white;
       border-collapse: collapse;
       padding: 20px;
     }
-    #colBill
-    {
-    background-color: lightblue;
-  }
-
+    #colBill {
+    background-color: lightgrey;
+    }
+    #colorBlock {
+      background-color: lightblue;
+    }
     </style>
   </head>
   <body>
+    <h1>Monthly Bills</h1>
     <table id="billTable">
       <colgroup>
         <col id="colBill" span="1">
@@ -29,30 +31,30 @@
       </colgroup>
     <thead>
      <tr id="billRow">
-      <th>Bills</th>
-      <th>June</th>
-      <th>July</th>
-      <th>August</th>
+      <th>Bill</th>
+      <th id="colorBlock">April</th>
+      <th id="colorBlock">May</th>
+      <th id="colorBlock">June</th>
      </tr>
     </thead>
     <tbody>
       <tr>
-        <td id="billCell">Lawn Care</td>
-        <td>$60</td>
-        <td>$60</td>
-        <td>$40</td>
+        <td id="billCell">Phone</td>
+        <td id="colorBlock">$120</td>
+        <td id="colorBlock">$140</td>
+        <td id="colorBlock">$140</td>
       </tr>
       <tr>
-        <td id="billCell">Electric Bill</td>
-        <td>$120</td>
-        <td>$140</td>
-        <td>$90</td>
+        <td id="billCell">Gas</td>
+        <td id="colorBlock">$90</td>
+        <td id="colorBlock">$100</td>
+        <td id="colorBlock">$150</td>
       </tr>
       <tr>
-        <td id="billCell">Water Bill</td>
-        <td>$80</td>
-        <td>$60</td>
-        <td>$75</td>
+        <td id="billCell">Food</td>
+        <td id="colorBlock">$280</td>
+        <td id="colorBlock">$280</td>
+        <td id="colorBlock">$300</td>
       </tr>
      </tbody>
     </table>
