@@ -7,6 +7,11 @@
        color: yellow;
        background: black;
      }
+     h2 {
+       font-size: 36px;
+       margin: 50px;
+       padding:10px 15px;
+     }
      #links li {
       background-color: gold;
       display: inline-block;
@@ -15,26 +20,63 @@
       padding: 10px;
       margin: 6px 24px;
       display: inline-block;
+      border-radius: 4px;
+     }
+     #links li a{
+       text-decoration: none;
      }
      img {
-       padding: 10px;
+       padding: 5px;
      }
+     .gallery {
+       border: 2px solid gold;
+     }
+     footer {
+      display: inline-block;
+     }
+     .foot1 {
+       padding: 10px;
+       background-color: #ad2287;
+       border-radius: 40px;
+     }
+     .foot2 {
+       padding: 30px;
+     }
+     .foot3 {
+       padding: 30px;
+     }
+       @media screen and (max-width: 480px) {
+         h2 {
+           font-size: 24px;
+           margin: 20px;
+         }
+         section img {
+           width: 200px;
+         }
+       }
     </style>
   </head>
   <body>
-  <ul id="links">
+   <ul id="links">
     <li><a href="portfolio.html">PORTFOLIO</a></li>
     <li><a href="about_me.html">ABOUT ME</a></li>
     <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-  <img src="../p-images/Bookdesign.png" alt=bookdesign
-  width= 200px>
-  <img src="../p-images/Converse-App.png" alt=shoeapp
-  width= 170px>
-  <img src="../p-images/Decor_magazin.png" alt=magazine
-  width= 150px>
-  <img src= "../p-images/HighView_App.png" alt=app
-  width= 200px>
-
+   </ul>
+   <h2>Gallary/Ongoing Projects</h2>
+   <main class="gallery">
+     <section>
+       <img src="../p-images/Bookdesign.png" alt=bookdesign
+        width= 300px>
+       <img src="../p-images/Converse-App.png" alt=shoeapp
+        width= 300px>
+       <img src="../p-images/Decor_magazin.png" alt=magazine
+        width= 300px>
+       <img src= "../p-images/HighView_App.png" alt=app
+        width= 300px>
+      </section>
+    </main>
+    <footer class="foot1">Page 1</footer>
+    <footer class="foot2">Page 2</footer>
+    <footer class="foot3">Page 3</footer>
   </body>
 </html>

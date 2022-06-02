@@ -3,9 +3,18 @@
   <head>
     <title>Portfolio Demo 1</title>
     <style>
+
      body{
-       color: yellow;
-       background: black;
+       display: grid;
+       color: gold;
+       background-image: url(../images/purplebg.jpg);
+       background-size: cover;
+       background-attachment: fixed;
+     }
+     p {
+       font-size: 80px;
+       padding-top: 300px;
+       text-align: center;
      }
      #links li {
       background-color: gold;
@@ -15,15 +24,30 @@
       padding: 10px;
       margin: 7px 24px;
       display: inline-block;
+      border-radius: 4px;
      }
+     #links li a {
+       text-decoration: none;
+     }
+      @media screen and (max-width: 480px){
+        p {
+          padding-top: 50px;
+          font-size: 24px;
+        }
+      }
     </style>
   </head>
   <body>
-    <h1>I'm Deandre, a Visual designer</h1>
+    <nav>
      <ul id="links">
       <li><a href="portfolio.html">PORTFOLIO</a></li>
       <li><a href="about_me.html">ABOUT ME</a></li>
       <li><a href="contact.html">CONTACT</a></li>
-   </ul>
+     </ul>
+   </nav>
+    <p>I'm Deandre, a Visual designer. Checkout my content,
+       and feel free to follow me on social media or feel free
+       to leave a comment on my work.
+    </p>
   </body>
 </html>

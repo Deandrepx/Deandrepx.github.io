@@ -3,6 +3,9 @@
   <head>
     <title>GRRM Redesign</title>
   </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montaga&display=swap" rel="stylesheet">
   <style>
   #gridLayout {
     display: grid;
@@ -32,9 +35,22 @@
   }
   header h1 {
     display: block;
+    font-family: 'Montaga', serif;
   }
   nav {
     grid-area: navbar;
+  }
+  nav ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+  nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Montaga', serif;
   }
   #bannerContainer {
     grid-area: banner;
@@ -73,6 +89,10 @@
     header h1 {
       display: block;
   }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
  }
   </style>
   <body>
@@ -81,7 +101,15 @@
        <img src="../../images/shield-spin.jpg">
        <h1>GEORGE R. R. MARTIN</h1>
       </header>
-      <nav>navigation</nav>
+      <nav>
+        <ul>
+          <li><a href=#>Home</a></li>
+          <li><a href=#>Not A Blog</a></li>
+          <li><a href=#>About George</a></li>
+          <li><a href=#>Books</a></li>
+          <li><a href=#>For Fans</a></li>
+          <li><a href=#>Merchandise</a></li>
+        </ul>
       <section id="bannerContainer">banner</section>
       <section id="cardsContainer">cards</section>
       <aside>Aside</aside>
