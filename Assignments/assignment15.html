@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Countdown</title>
+    <style>
+      body {
+        margin: 0px;
+      }
+      #time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: skyblue;
+        height: 500px;
+      }
+      #final {
+        display: inline-flex;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Last Weeks</h1>
+    </header>
+   <div id="time">
+    <h1 id="final">Last Weeks</h1>
+   </div>
+   <script type="text/javascript">
+     let deadline = new Date ('Jan 01, 2023 23:00:00')
+     let countdown = document.getElementById("final")
+     countdown.innerHTML = "<i>DYNAMIC CODE</i>;"
+
+     function setCountdown() {
+       let now = new Date();
+
+
+       let timeLeft = deadline.getTime() - now.getTime();
+
+       let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
+       let hours = Math.floor(
+         (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60 )
+       );
+       let minutes = Math.floor(
+         (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+       );
+       let seconds = Math.floor(
+         (timeLeft % (1000 * 60)) / 1000
+       );
+
+       countdown.innerHTML =
+       `${days} days ${hours} hours ` +
+        `${minutes} minutes  ${seconds} seconds left`;
+     }
+
+     setInterval(setCountdown, 1000);
+
+
+
+
+    </script>
+  </body>
+</html>
+   </script>
+  </body>
+</html>
