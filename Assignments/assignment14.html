@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Forms Example - part 1</title>
+    <style>
+    #button {
+      margin-left: 80px;
+      margin-top: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Apex Legends</h2>
+      <div>
+       <label for="favoriteGame">Favorite Game</label>
+       <input type="text" id="favoriteGame"
+       name="fav">
+      </div>
+      <div>
+       <label for="bestPerson">Best Character</label>
+       <input type="text" id="bestPerson"
+       name="best">
+      </div>
+      <h2>Character Selection</h2>
+      <label for="preference">
+        Who do you think the devs should buff/nerf?
+      </label>
+      <div>
+        <textarea id="preference" name="choice"></textarea>
+      </div>
+      <h2>Team Numbers</h2>
+      <p>How many people should be on a team?</p>
+      <div>
+        <input type="radio" id="one" name="game"
+         value="1">
+        <label for="firstSelection">
+          3 (default)
+        </label>
+      </div>
+      <div>
+       <input type="radio" id="two" name="game"
+         value="2">
+       <label for="secondSelection">
+          4
+       </label>
+      </div>
+      <div>
+       <input type="radio" id="three" name="game"
+         value="3">
+       <label for="thirdSelection">
+           5
+       </label>
+       <div>
+        <input type="submit" id="button" name="send" value="submit">
+       </div>
+      </div>
+    </form>
+  </body>
+</html>
