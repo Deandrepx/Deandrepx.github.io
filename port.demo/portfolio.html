@@ -3,9 +3,12 @@
   <head>
     <title>Portfolio</title>
     <style>
-     body{
-       color: yellow;
-       background: black;
+    body {
+      background-image: url("../images/purplebg.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: white;
      }
      h2 {
        font-size: 36px;
@@ -27,12 +30,14 @@
      }
      img {
        padding: 5px;
+       height: 300px;
      }
-     .gallery {
-       border: 2px solid gold;
+     .gallery section img {
+       align-items: center;
      }
      footer {
       display: inline-block;
+      color: white;
      }
      .foot1 {
        padding: 10px;
@@ -42,20 +47,14 @@
      .foot2 {
        padding: 30px;
      }
-     .foot3 {
-       padding: 30px;
-     }
        @media screen and (max-width: 480px) {
          h2 {
            font-size: 24px;
            margin: 20px;
          }
          section img {
-           width: 200px;
+           width: 370px;
          }
-       }
-       img {
-
        }
     </style>
   </head>
@@ -82,8 +81,8 @@
          width=300px>
       </section>
     </main>
-    <footer class="foot1">Page 1</footer>
-    <footer class="foot2">Page 2</footer>
-    <footer class="foot3">Page 3</footer>
+    <footer class="foot1"><a href="#">Page 1</a></footer>
+    <footer class="foot2"><a href="#">Page 2</a></footer>
+    <footer class="foot2"><a href="#">Page 3</a></footer>
   </body>
 </html>
