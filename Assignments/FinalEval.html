@@ -1,4 +1,4 @@
-DOCTYPE html>
+<DOCTYPE html>
 <html lang="en-US">
   <head>
     <title>Green Foundation</title>
@@ -33,6 +33,8 @@ DOCTYPE html>
       background-color: #BBBBBB;
       display: flex;
       flex-direction: row;
+      grid-area: nav;
+      background-color: green;
     }
 
     #nav #navItems {
@@ -78,11 +80,20 @@ DOCTYPE html>
 
     /* TODO: need to reveal nav when javascript adds 'navOpen' class */
     .navItem.navOpen .navDropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
     }
 
     .navDropdown a {
-      color: white;
+      color: green;
+      background-color: tan;
       display: block;
+      padding: 20px 16px;
+      text-decoration: none;
+      position: absolute;
+
+      z-index: 1;
     }
 
     .navDropdown a + a {
@@ -96,20 +107,24 @@ DOCTYPE html>
       background-size: cover;
       padding: 100px 100px;
       text-align: center;
+      grid-area: header;
     }
 
     /* TODO: need to set grid-area for banner1 */
     #bannerItem1 {
       border-right: 3px solid #666666;
+      grid-area: banner1;
     }
 
     /* TODO: need to set grid-area for banner2 */
     #bannerItem2 {
+      grid-area: banner2;
     }
 
     /* TODO: need to set grid-area for banner3 */
     #bannerItem3 {
       border-left: 3px solid #666666;
+      grid-area: banner3;
     }
 
     #bannerItem1,
@@ -127,7 +142,7 @@ DOCTYPE html>
     }
 
     /* TODO: need to add hover behavior for links */
-    .bannerActions a {
+    .bannerActions a:hover {
       background-color: #999999;
       color: white;
       display: inline-block;
@@ -149,6 +164,7 @@ DOCTYPE html>
     #storefront {
       background-color: white;
       text-align: center;
+      grid-area: storefront;
     }
 
     /*
@@ -156,7 +172,8 @@ DOCTYPE html>
       so we can render the shop cards in multiple rows
     */
     #shopGrid {
-      display: block;
+      display: flex;
+      flex-wrap; wrap;
     }
 
     /*
@@ -192,6 +209,7 @@ DOCTYPE html>
       background-color: white;
       padding: 24px;
       text-align: center;
+      grid-area: blog;
     }
 
     #blog h2 {
@@ -243,6 +261,7 @@ DOCTYPE html>
       background: linear-gradient(to bottom, #BBBBBB, #999999);
       border-right: 3px solid #666666;
       padding: 48px 24px 24px 24px;
+      grid-area: footer;
     }
 
     #footer #footerItems {
@@ -270,6 +289,7 @@ DOCTYPE html>
     #footerSocialMedia {
       background: linear-gradient(to bottom, #BBBBBB, #999999);
       padding: 24px;
+      grid-area: footerSpecial;
     }
 
     /* TODO: need to set grid-area for copyright */
@@ -278,6 +298,7 @@ DOCTYPE html>
       color: white;
       font-size: 12px;
       padding: 24px;
+      grid-area: copyright;
     }
 
 
@@ -291,17 +312,26 @@ DOCTYPE html>
           probably in a single column
         */
         grid-template-areas:
-          "";
+          "nav"
+          "header"
+          "banner1"
+          "banner2"
+          "banner3"
+          "storefront"
+          "blog"
+          "footer"
+          "footerSocial"
+          "copyright";
       }
 
       /* TODO: change this flexbox's container direction to a column */
       #nav {
-
+        flex-direction: column;
       }
 
       /* TODO: change this flexbox's container direction to a column */
       #nav #navItems {
-
+        flex-direction: column;
         text-align: center;
       }
 
@@ -357,6 +387,7 @@ DOCTYPE html>
 
       /* TODO: we need to change the direction of the flexbox content to a column */
       #blog .blogPost {
+        flex-direction: column;
       }
 
       #blog .blogPost .blogPostImage {
@@ -397,6 +428,7 @@ DOCTYPE html>
       */
       #footer #footerItems {
         text-align: center;
+        flex-wrap: nowrap;
       }
 
       #footerSocialMedia,
@@ -549,7 +581,7 @@ DOCTYPE html>
           </div>
           <div class="shopItemCard">
             <!-- TODO: fix image src -->
-            <img class="shopItemImage" alt="tshirt4" src="images/tshirt.jpg" />
+            <img class="shopItemImage" alt="tshirt4" src="../img/nature1.jpeg"/>
             <div class="shopItemBadge">TSHIRT</div>
             <form class="shopItemSelection">
               <select name="quantity">
@@ -561,7 +593,7 @@ DOCTYPE html>
           </div>
           <div class="shopItemCard">
             <!-- TODO: fix image src -->
-            <img class="shopItemImage" alt="mug1" src="images/mug.jpg" />
+            <img class="shopItemImage" alt="mug1" src="../img/nat2.jpge" />
             <div class="shopItemBadge">COFFEE MUG</div>
             <form class="shopItemSelection">
               <select name="quantity">
@@ -573,7 +605,7 @@ DOCTYPE html>
           </div>
           <div class="shopItemCard">
             <!-- TODO: fix image src -->
-            <img class="shopItemImage" alt="mug2" src="images/mug.jpg" />
+            <img class="shopItemImage" alt="mug2" src="../img/nat3.jpeg" />
             <div class="shopItemBadge">COFFEE MUG</div>
             <form class="shopItemSelection">
               <select name="quantity">
@@ -585,7 +617,7 @@ DOCTYPE html>
           </div>
           <div class="shopItemCard">
             <!-- TODO: fix image src -->
-            <img class="shopItemImage" alt="seeds1" src="images/seeds.jpg" />
+            <img class="shopItemImage" alt="seeds1" src="../img/nat4.jpeg" />
             <div class="shopItemBadge">SEEDS</div>
             <form class="shopItemSelection">
               <select name="quantity">
@@ -615,7 +647,7 @@ DOCTYPE html>
         <h2>Check out our latest blog posts</h2>
         <div class="blogPost">
           <!-- TODO: fix image src -->
-          <img src="images/sapling.jpg" class="blogPostImage" alt="happy plants" />
+          <img src="../img/nat4.jpeg" class="blogPostImage" alt="happy plants" />
           <div class="blogPostPreview">
             <h3 class="blogPostPreviewTitle">
               Will talking to plants help them grow?
@@ -643,7 +675,7 @@ DOCTYPE html>
             <a href="#">Keep reading</a>
           </div>
           <!-- TODO: fix image src -->
-          <img src="images/field.jpg" class="blogPostImage" alt="happy people" />
+          <img src="../img/nat5.jpeg" class="blogPostImage" alt="happy people" />
         </div>
       </div>
 
@@ -703,12 +735,12 @@ DOCTYPE html>
     <script type="text/javascript">
       $('.navItem').hover(
         function() {
-           $(this).addclass('.navOpen');
           // TODO: jQuery to add the 'navOpen' class to $(this) goes here
+         $(this).addclass('navOpen');
         },
         function() {
-          $(this).removeClass('.navOpen');
           // TODO: jQuery to remove the 'navOpen' class to $(this) goes here
+         $(this).removeClass('navOpen');
         }
       );
     </script>
