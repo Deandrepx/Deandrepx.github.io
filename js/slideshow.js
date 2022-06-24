@@ -10,9 +10,9 @@ let currentSlideIndex = 0;
 function showCurrentSlide() {
   for (let i = 0; i < slides.length; i++) {
     let loopSlide = slides[i];
-    if (i != currentSlideIndex)
+    if (i != currentSlideIndex) {
     loopSlide.style.display = "none";
-  } else {
+    else {
     loopSlide.style.display = "inline-block";
   }
  }

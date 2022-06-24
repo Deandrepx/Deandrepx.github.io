@@ -1,0 +1,716 @@
+DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Green Foundation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #DDDDDD;
+      font-family: ;
+      margin: 0;
+    }
+
+    #pageLayoutGrid {
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 300px) 1fr;
+      grid-template-areas:
+        ". nav nav nav ."
+        ". header header header ."
+        ". banner1 banner2 banner3 ."
+        ". storefront storefront storefront ."
+        ". blog blog blog ."
+        ". footer footer footerSocial ."
+        ". copyright copyright copyright ."
+    }
+
+    /* TODO: need to set grid-area for nav */
+    #nav {
+      background-color: #BBBBBB;
+      display: flex;
+      flex-direction: row;
+    }
+
+    #nav #navItems {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navItem {
+      position: relative;
+    }
+
+    .navItem:hover,
+    #navCtas a.navCta {
+      background-color: #999999;
+      color: white;
+    }
+
+    .navItem:hover a {
+      color: white;
+    }
+
+    .navItem a,
+    #navCtas a.navCta {
+      display: inline-block;
+      padding: 12px;
+      text-decoration: none;
+    }
+
+    .navItem a {
+      color: black;
+    }
+
+    /* TODO: should be hidden by default */
+    .navDropdown {
+      background-color: #999999;
+      position: absolute;
+      width: 200px;
+    }
+
+    /* TODO: need to reveal nav when javascript adds 'navOpen' class */
+    .navItem.navOpen .navDropdown {
+    }
+
+    .navDropdown a {
+      color: white;
+      display: block;
+    }
+
+    .navDropdown a + a {
+      padding-top: 0;
+    }
+
+    /* TODO: need to set grid-area for header */
+    #header {
+      /* TODO: fix image source url */
+      background-image: url("../images/green.jpg");
+      background-size: cover;
+      padding: 100px 100px;
+      text-align: center;
+    }
+
+    /* TODO: need to set grid-area for banner1 */
+    #bannerItem1 {
+      border-right: 3px solid #666666;
+    }
+
+    /* TODO: need to set grid-area for banner2 */
+    #bannerItem2 {
+    }
+
+    /* TODO: need to set grid-area for banner3 */
+    #bannerItem3 {
+      border-left: 3px solid #666666;
+    }
+
+    #bannerItem1,
+    #bannerItem2,
+    #bannerItem3 {
+      background: linear-gradient(to bottom, #BBBBBB, #999999);
+      display: flex;
+      flex-direction: column;
+      padding: 12px 24px 36px 24px;
+      text-align: center;
+    }
+
+    .bannerItem p {
+      flex: 1;
+    }
+
+    /* TODO: need to add hover behavior for links */
+    .bannerActions a {
+      background-color: #999999;
+      color: white;
+      display: inline-block;
+      padding: 12px;
+      text-decoration: none;
+    }
+
+    a.socialMediaLink {
+      background-color: #999999;
+      display: inline-block;
+      padding: 6px;
+    }
+
+    a.socialMediaLink img {
+      width: 25px;
+    }
+
+    /* TODO: need to set grid-area for storefront */
+    #storefront {
+      background-color: white;
+      text-align: center;
+    }
+
+    /*
+      TODO: need to turn this into a flexbox container,
+      so we can render the shop cards in multiple rows
+    */
+    #shopGrid {
+      display: block;
+    }
+
+    /*
+      TODO: need to set a flexbox item property here
+      to limit the width/flex basis per card,
+      to configure how many cards fit per row
+    */
+    #shopGrid .shopItemCard {
+      background-color: #999999;
+      margin-bottom: 24px;
+      padding: 12px;
+    }
+
+    #shopGrid .shopItemCard .shopItemImage {
+      background-color: #BBBBBB;
+      border: 1px solid #999999;
+      display: block;
+      height: 100px;
+      width: 100%;
+    }
+
+    #shopGrid .shopItemCard .shopItemBadge {
+      background-color: #BBBBBB;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 12px;
+      margin: 12px 0;
+      padding: 4px;
+    }
+
+    /* TODO: need to set grid-area for blog */
+    #blog {
+      background-color: white;
+      padding: 24px;
+      text-align: center;
+    }
+
+    #blog h2 {
+    margin-bottom: 36px;
+    }
+
+    #blog .blogPost {
+      align-items: center;
+      display: flex;
+      margin-bottom: 48px;
+    }
+
+    #blog .blogPost .blogPostImage {
+      background-color: #BBBBBB;
+      border: 4px solid #999999;
+      flex: 2;
+      height: 350px;
+    }
+
+    #blog .blogPost:nth-child(even) .blogPostImage {
+      border-radius: 72px 72px 0 72px;
+      margin-right: 48px;
+    }
+
+    #blog .blogPost:nth-child(odd) .blogPostImage {
+      border-radius: 72px 72px 72px 0;
+      margin-left: 48px;
+    }
+
+    #blog .blogPost .blogPostPreview {
+      flex: 1;
+      text-align: left;
+    }
+
+    #blog .blogPost:nth-child(even) .blogPostPreview {
+      margin-right: 48px;
+    }
+
+    #blog .blogPost:nth-child(odd) .blogPostPreview {
+      margin-left: 24px;
+    }
+
+    #blog .blogPost .blogPostPreview a {
+        color: #666666;
+    }
+
+    /* TODO: need to set grid-area for footer */
+    #footer {
+      background: linear-gradient(to bottom, #BBBBBB, #999999);
+      border-right: 3px solid #666666;
+      padding: 48px 24px 24px 24px;
+    }
+
+    #footer #footerItems {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 200px;
+    }
+
+    #footer .footerItem {
+      margin-bottom: 24px;
+    }
+
+    #footer .footerItem a {
+      color: #666666;
+      display: block;
+      margin-left: 24px;
+    }
+
+    #footer .footerItem a:first-child {
+      margin-left: 0;
+    }
+
+    /* TODO: need to set grid-area for footerSocial */
+    #footerSocialMedia {
+      background: linear-gradient(to bottom, #BBBBBB, #999999);
+      padding: 24px;
+    }
+
+    /* TODO: need to set grid-area for copyright */
+    #copyright {
+      background-color: #666666;
+      color: white;
+      font-size: 12px;
+      padding: 24px;
+    }
+
+
+    /* This defines the styles for the mobile view */
+    @media screen and (max-width: 900px) {
+      #pageLayoutGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        /*
+          TODO: need to modify the template areas for mobile,
+          probably in a single column
+        */
+        grid-template-areas:
+          "";
+      }
+
+      /* TODO: change this flexbox's container direction to a column */
+      #nav {
+
+      }
+
+      /* TODO: change this flexbox's container direction to a column */
+      #nav #navItems {
+
+        text-align: center;
+      }
+
+      .navDropdown {
+        position: absolute;
+        visibility: hidden;
+      }
+
+      /*
+        This deliberately hides the dropdown menus on mobile,
+        to simplify the navigation
+      */
+      .navItem.navOpen .navDropdown {
+        visibility: hidden;
+      }
+
+      #navCtas a.navCta {
+        display: block;
+        text-align: center;
+      }
+
+      #header {
+        padding: 36px;
+      }
+
+      #header h1 {
+        font-size: 24px;
+      }
+
+      #header form {
+        text-align: center;
+      }
+
+      #header form label {
+        display: block;
+      }
+
+      #header form input {
+        display: block;
+        margin: 0 auto;
+      }
+
+      /*
+        TODO: need to set a flexbox item property here
+        to limit the width/flex basis per card,
+        to configure how many cards fit per row
+        (we need less displayed per row on mobile)
+      */
+      #shopGrid .shopItemCard {
+        margin-bottom: 24px;
+        padding: 12px;
+      }
+
+      /* TODO: we need to change the direction of the flexbox content to a column */
+      #blog .blogPost {
+      }
+
+      #blog .blogPost .blogPostImage {
+        flex-basis: 250px;
+        margin: 24px;
+        width: 100%;
+      }
+
+      /*
+        We change the order here so that on mobile,
+        the images always display first
+      */
+      #blog .blogPost .blogPostPreview {
+        order: 2;
+        text-align: center;
+      }
+
+      #blog .blogPost:nth-child(even) .blogPostImage {
+        margin-right: 24px;
+      }
+
+      #blog .blogPost:nth-child(odd) .blogPostImage {
+        margin-left: 24px;
+      }
+
+      #blog .blogPost:nth-child(even) .blogPostPreview {
+        margin-right: 0;
+      }
+
+      #blog .blogPost:nth-child(odd) .blogPostPreview {
+        margin-left: 0;
+      }
+
+      /*
+        TODO: we need to remove the wrapping of the flexbox here,
+        as well as reset the height back to the default (auto),
+        so that the footer links render in a column on mobile
+      */
+      #footer #footerItems {
+        text-align: center;
+      }
+
+      #footerSocialMedia,
+      #copyright {
+        text-align: center;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <div id="pageLayoutGrid">
+
+      <!-- Navigation section of the grid -->
+      <div id="nav">
+        <ul id="navItems">
+          <li class="navItem">
+            <a href="#" class="navLink logo">Green Foundation</a>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">About</a>
+            <div class="navDropdown">
+              <a href="#" class="navDropdownLink">Mission and Vision</a>
+              <a href="#" class="navDropdownLink">History</a>
+            </div>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">Projects</a>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">News</a>
+            <div class="navDropdown">
+              <a href="#" class="navDropdownLink">Events Calendar</a>
+              <a href="#" class="navDropdownLink">Image Gallery</a>
+            </div>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">Get Involved</a>
+            <div class="navDropdown">
+              <a href="#" class="navDropdownLink">Donate</a>
+              <a href="#" class="navDropdownLink">Online Store</a>
+              <a href="#" class="navDropdownLink">Volunteer</a>
+            </div>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">Contact Us</a>
+          </li>
+        </ul>
+        <!-- CTA is short for Call To Action -->
+        <div id="navCtas">
+          <a href="#" class="navCta">DONATE</a>
+        </div>
+      </div>
+
+      <!-- Hero section of the grid -->
+      <div id="header">
+        <div class="eyebrow">Planting the Seeds of the Future</div>
+        <h1 class="heroHeading">
+          Poverty and environmental degradation are intrinsically linked. By
+          healing the environment, we can heal lives as well.
+        </h1>
+        <form>
+          <!-- TODO: Add in the form inputs for users to subscribe their email -->
+        </form>
+      </div>
+
+      <!-- Banner section of the grid -->
+      <div id="bannerItem1" class="bannerItem">
+        <h3>Get Started in Your Community</h3>
+        <p>
+          Curious about what you can do in your neighborhood? Download our
+          free eBook to find out.
+        </p>
+        <div class="bannerActions">
+          <a class="downloadButton" href="#">DOWNLOAD</a>
+        </div>
+      </div>
+      <div id="bannerItem2" class="bannerItem">
+        <h3>Take Part in our<br>Green Thumb Initiative</h3>
+        <p>
+          Community gardens are an excellent opportunity to provide for the
+          needy in your neighborhood, while also providing a chance to educate
+          young people about how food is grown.
+        </p>
+        <div class="bannerActions">
+          <a class="learnMoreButton" href="#">LEARN MORE</a>
+        </div>
+      </div>
+      <div id="bannerItem3" class="bannerItem">
+        <h3>Follow Us on Our<br>Social Media Accounts</h3>
+        <p>
+          Engage with us online!  We post at least once a day, and we'd love to
+          hear from you about how the Green Foundation has helped in your
+          community.
+        </p>
+        <div class="bannerActions">
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="images/twitter.png" alt="twitter" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="images/facebook.png" alt="facebook" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="images/instagram.png" alt="instagram" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Storefront section of the grid -->
+      <div id="storefront">
+        <h2>Add some GREEN into your life from our online store</h2>
+        <div id="shopGrid">
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="tshirt1" src="images/tshirt.jpg" />
+            <div class="shopItemBadge">TSHIRT</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="tshirt2" src="images/tshirt.jpg" />
+            <div class="shopItemBadge">TSHIRT</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="tshirt3" src="images/tshirt.jpg" />
+            <div class="shopItemBadge">TSHIRT</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="tshirt4" src="images/tshirt.jpg" />
+            <div class="shopItemBadge">TSHIRT</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="mug1" src="images/mug.jpg" />
+            <div class="shopItemBadge">COFFEE MUG</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="mug2" src="images/mug.jpg" />
+            <div class="shopItemBadge">COFFEE MUG</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="seeds1" src="images/seeds.jpg" />
+            <div class="shopItemBadge">SEEDS</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="seeds2" src="images/seeds.jpg" />
+            <div class="shopItemBadge">SEEDS</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <!-- TODO: add <option> tags for selectable values (1,2,3,etc.) -->
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog section of grid -->
+      <div id="blog">
+        <h2>Check out our latest blog posts</h2>
+        <div class="blogPost">
+          <!-- TODO: fix image src -->
+          <img src="images/sapling.jpg" class="blogPostImage" alt="happy plants" />
+          <div class="blogPostPreview">
+            <h3 class="blogPostPreviewTitle">
+              Will talking to plants help them grow?
+            </h3>
+            <p>
+              We've heard some pretty ridiculous urban (and rural) myths when it
+              comes to growing your crops.  But just because they sound silly
+              doesn't mean they aren't true.  So we decided to try them out
+              ourselves to find out just how...
+            </p>
+            <a href="#">Keep reading</a>
+          </div>
+        </div>
+        <div class="blogPost">
+          <div class="blogPostPreview">
+            <h3 class="blogPostPreviewTitle">
+              Arid field becomes radiant garden
+            </h3>
+            <p>
+              An empty barren field on the outskirts of a rural village in the
+              south had been a blight on the poor but otherwise lively town.
+              Fast forward six months, and see what a difference a little
+              irrigation made in the lives of these villagers...
+            </p>
+            <a href="#">Keep reading</a>
+          </div>
+          <!-- TODO: fix image src -->
+          <img src="images/field.jpg" class="blogPostImage" alt="happy people" />
+        </div>
+      </div>
+
+      <!-- Footer section of grid -->
+      <div id="footer">
+        <div id="footerItems">
+          <div class="footerItem">
+            <a href="#" class="footerLink">Green Foundation</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">About</a>
+            <a href="#" class="footerLink">Mission and Vision</a>
+            <a href="#" class="footerLink">History</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">Projects</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">News</a>
+            <a href="#" class="footerLink">Events Calendar</a>
+            <a href="#" class="footerLink">Image Gallery</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">Get Involved</a>
+            <a href="#" class="footerLink">Donate</a>
+            <a href="#" class="footerLink">Online Store</a>
+            <a href="#" class="footerLink">Volunteer</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div id="footerSocialMedia">
+        <h3>Follow Us on Social Media</h3>
+        <div>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="images/twitter.png" alt="twitter" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="images/facebook.png" alt="facebook" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="images/instagram.png" alt="instagram" />
+          </a>
+        </div>
+      </div>
+      <div id="copyright">
+        <span>© 2022 The Green Foundation</span>
+        Terms of Use | Privacy Statement | Charitable Solicitation Disclosures
+        | Mobile Terms & Conditions | Title VI Notice of Nondiscrimination
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.navItem').hover(
+        function() {
+           $(this).addclass('.navOpen');
+          // TODO: jQuery to add the 'navOpen' class to $(this) goes here
+        },
+        function() {
+          $(this).removeClass('.navOpen');
+          // TODO: jQuery to remove the 'navOpen' class to $(this) goes here
+        }
+      );
+    </script>
+  </body>
+</html>
