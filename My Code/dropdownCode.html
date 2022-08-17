@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Menu Code</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+      body {
+        font-family: Helvetica, san-serif;
+        background: #23242a;
+        min-height: 100vh;
+        display: flex;
+        justify-content: content;
+        align-items: center;
+        flex-wrap: wrap
+      }
+      .dropdown {
+        min-width: 15em;
+        position: relative;
+        margin: 2em;
+      }
+      .dropdown * {
+        box-sizing: border-box;
+      }
+      .select {
+        background: #2a2f3b;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px #2a2f3b solid;
+        border-radius: 0.5em;
+        padding: 1em;
+        cursor: pointer;
+        transition: 0.3;
+      }
+      .selected-clicked {
+        border: 2px #26489a solid;
+        box-shadow: 0 0 0.8em #26489a;
+      }
+      .select:hover {
+        background: #323741;
+      }
+      .caret {
+        width: 0px;
+        height: 0px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid #fff;
+        transition: 0.3s;
+      }
+      .caret-rotate {
+        transform: rotate(180deg);
+      }
+      .menu {
+        list-style: none;
+        padding: 0.2 0.5;
+        background: #323741;
+        border: 1px #363a43 solid;
+        box-shadow: 0 0.5em  1em rgba(0, 0, 0, 0.2);
+        color: #9fa5b5;
+        position: absolute;
+        top: 3em;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        opacity: 0;
+        display: none;
+        transition: 0.2s;
+        z-index: 1;
+      }
+      .menu li {
+        padding: 0.7em 0.5em;
+        margin: 0.3em 0;
+        border-radius: 0.5em;
+        cursor: pointer;
+      }
+      .menu-open {
+        display: block;
+        opacity: 1;
+      }
+      .menu li:hover {
+        background: #2a2d35;
+      }
+      .active {
+        background: #23242a;
+      }
+      .menu-open {
+        display: block;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <div class="select">
+        <span class="selected">Figma</span>
+        <div class="caret"></div>
+      </div>
+      <ul class="menu">
+       <li>Framer</li>
+       <li>Sketch</li>
+       <li>Invision Studio</li>
+       <li class="active">Figma</li>
+       <li>Adobe XD</li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <div class="select">
+        <span class="selected">Facebook</span>
+        <div class="caret"></div>
+      </div>
+      <ul class="menu">
+       <li class="active">Facebook</li>
+       <li>Instagram</li>
+       <li>Twitter</li>
+       <li>Linkedin</li>
+       <li>Tik Tok</li>
+      </ul>
+    </div>
+
+
+    <script>
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+
+      const select = dropdown.querySelector('.select');
+      const caret = dropdown.querySelector('.caret');
+      const menu = dropdown.querySelector('.menu');
+      const options = dropdown.querySelectorAll('.menu li');
+      const selected = dropdown.querySelector('.selected');
+
+
+      select.addEventListener('click', () => {
+        select.classList.toggle('select-clicked');
+        caret.classList.toggle('caret-rotate');
+        menu.classList.toggle('menu-open');
+      });
+
+
+    options.forEach(option => {
+
+      options.addEventListen('.click', () => {
+
+          selected.innerText = option.innerText;
+          select.classList.remove('select-clicked');
+          caret.classList.remove('caret-rotate');
+          menu.classList.remove('menu-open');
+          options.forEach(option => {
+            option.classList.remove('active');
+          });
+
+          option.classList.add('active');
+        });
+       });
+     });
+    });
+  </body>
+</html>
