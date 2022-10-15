@@ -30,7 +30,7 @@
 
     /* TODO: need to set grid-area for nav */
     #nav {
-      background-color: #BBBBBB;
+      background-color: ;
       display: flex;
       flex-direction: row;
       grid-area: nav;
@@ -73,6 +73,7 @@
 
     /* TODO: should be hidden by default */
     .navDropdown {
+      display: none;
       background-color: #999999;
       position: absolute;
       width: 200px;
@@ -80,6 +81,7 @@
 
     /* TODO: need to reveal nav when javascript adds 'navOpen' class */
     .navItem.navOpen .navDropdown {
+      display: block;
       position: relative;
       display: inline-block;
       cursor: pointer;
@@ -736,7 +738,7 @@
       $('.navItem').hover(
         function() {
           // TODO: jQuery to add the 'navOpen' class to $(this) goes here
-         $(this).addclass('navOpen');
+         $(this).addClass('navOpen');
         },
         function() {
           // TODO: jQuery to remove the 'navOpen' class to $(this) goes here
