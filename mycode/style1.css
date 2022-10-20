@@ -28,12 +28,12 @@ h1 {
   transform-style: preserve-3d;
   animation: animate 3s infinite;
 }
-@keyframes animate {
+@keyframes animat {
   0% {transform: rotateX(45deg) rotateY(-45deg);
   }
-  25% {transform: rotateX(-45deg) rotateY(-45deg);
+  25% {transform: rotateX(-125deg) rotateY(-125deg);
   }
-  50% {transform: rotateX(45deg) rotateY(45deg);
+  50% {transform: rotateX(125deg) rotateY(90deg);
   }
   75% {transform: rotateX(45deg) rotateY(45deg);
   }
@@ -45,10 +45,10 @@ h1 {
   width: 250px;
   text-align: center;
   padding: 100px 0px;
-  color: white;
+  color: red;
   background: black;
   border: 2px solid white;
-  font-size: 40px;
+  font-size: 120px;
   box-sizing: border-box;
   position: absolute;
   transition: all 1s;
@@ -83,14 +83,14 @@ input {
   font-size: 14px;
   cursor: pointer;
   position: absolute;
-  top: -100px;
+  top: -70px;
   left: 175px;
 }
 input:focus~ .box #front{
   transform: translateZ(180px) rotateY(360deg);
 }
 input:focus~ .box #back{
-  transform: translateZ(-180px) rotateY(360);
+  transform: translateZ(-180px) rotateY(360deg);
 }
 input:focus~ .box #left{
   right: 180px;

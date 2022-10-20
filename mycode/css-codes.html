@@ -15,12 +15,12 @@
 
     }
 
-    @keyframes ex1 {
+    /* @keyframes ex1 {
       0%   {background-color:red; left:0px; top:0px;}
     25%  {background-color:yellow; left:500px; top:0px;}
     50%  {background-color:blue; left:800px; top:200px;}
     75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
+    100% {background-color:red; left:0px; top:0px;} */
     }
   </style>
   </head>
@@ -29,21 +29,27 @@
 
     </div>
     <div class="ex2">
-     <button type="button" onclick="myFunction()">Click Me</button>
+     <button type="button">Click Me</button>
+
      <p id="demo" onclick="colors">I like classical Music</p>
     </div>
-    <button type="button" name="button" class="lol2">Press This</button>
+    <!-- <button type="button" name="button" class="lol2">Press This</button> -->
 
     <script>
+    let button = document.querySelector('button');
+
       function colors() {
-        document.getElementById.("colors").style.color = "pink";
-        document.getElementById.("colors").style.      }
-       function myFunction() {
+        document.getElementById.("demo").style.color = "pink";
+        document.getElementById.("demo").style.backgroundColor = "black" ;
+      }
+
+
+       button.onclick = function myFunction() {
          document.getElementById("demo").innerHTML = "And Omg I can't believe Javascript is this lit lmao.";
          document.getElementById("demo").style.fontSize = "30px";
-         document.getElementById("demo").style.color = "cyan"
+         document.getElementById("demo").style.color = "cyan";
          document.getElementById("demo").style.backgroundColor = "black";
-         document.getElementById("demo").style.display = "inline-block"
+         document.getElementById("demo").style.display = "inline-block";
        }
     </script>
   </body>
